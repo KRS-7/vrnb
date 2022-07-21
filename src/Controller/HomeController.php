@@ -1172,6 +1172,20 @@ class HomeController extends AbstractController
 
 
     /**
+     * @Route("/statistiques", name="statistiques")
+     *
+     * Cette méthode permet d'afficher la page Google Analytics.
+     *
+     */
+
+    public function Statistiques(): Response
+    {
+        //Permet de rediriger vers la page mentions-legales.html.twig( Mention légales )
+        return $this->render('Association/Statistiques.html.twig');
+    }
+
+
+    /**
      * @Route("/pdf_mentionslegales", name="pdfmentionslegales")
      * @param Request $request
      * @return Response
