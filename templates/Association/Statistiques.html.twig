@@ -1,9 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} | Statistiques{% endblock %}
+{% block title %}Statistiques | {{ parent() }}{% endblock %}
 
 {% block body%}
 
+
+
+        <div class="container container-stats " id="widgetIframe">
+            <iframe src="http://localhost/Vrnb/matomo/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=1&period=week&date=yesterday&token_auth=61a41052cf0478ee3a50c238bb043dd8
+" frameborder="0" marginheight="0" marginwidth="0" largeur="100%" hauteur="100%"></iframe>
+        </div>
+
+
+
     {% block carousel %}{% endblock %}
+
+
 
 {%endblock%}

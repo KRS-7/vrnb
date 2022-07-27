@@ -12,6 +12,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
         "friendsofsymfony/ckeditor-bundle": "^2.3",
+        "google/apiclient": "2.0",
         "laminas/laminas-eventmanager": "^3.3",
         "league/glide": "^2.2",
         "league/glide-symfony": "^2.0",

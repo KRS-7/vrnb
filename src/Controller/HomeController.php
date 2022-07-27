@@ -1180,6 +1180,8 @@ class HomeController extends AbstractController
 
     public function Statistiques(): Response
     {
+        $this->denyAccessUnlessGranted("ROLE_ADMIN");
+
         //Permet de rediriger vers la page mentions-legales.html.twig( Mention légales )
         return $this->render('Association/Statistiques.html.twig');
     }
