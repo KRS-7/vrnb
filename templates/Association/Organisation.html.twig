@@ -1,8 +1,17 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}{{ parent() }} | Organisation{% endblock %}
 {# La page organisation bureau #}
 {% block body %}
+
+
+
+    <!--Module jquery-orgchart-->
+    <!--Les scripts sont ici pour éviter de les charger systématiquement depuis la base -->
+
+
+    <!--<li> rajoute une branche , <ul> fait continuer la branche-->
 
     <div class="container bureau_main">
 
@@ -13,7 +22,7 @@
                 <figcaption class="fig">Organisation</figcaption>
             </figure>
         {% else %}
-            <h1 class="titreEnTete">Organisation</h1>
+            <h1 class="titreEnTete"></h1>
         {% endif %}
     </div>
     <div class="col-lg-12">
@@ -30,6 +39,145 @@
             </div>
         {% endif %}
     </div>
+
+    <div id="left" >
+        <ul id="organisation">
+            <li >
+                    <div class="card">
+                        <div class="card-header membresBureau">
+                        Président
+                        </div>
+                        <div class="card-body">
+                            <p class="card-tex">Loïck TOUCHARD</p>
+                        </div>
+                    </div>
+
+                <div class="carte">
+                    <div class="carte-entete membresBureau">
+                        Vice-président
+                    </div>
+                    <div class="carte-corps">
+                        <p class="carte-texte">Gilbert LE PAGE</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <div class="card">
+                            <div class="card-header membresBureau">
+                                Trésorier
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Pascal DECAN</p>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="card">
+                                    <div class="card-header membresBureau">
+                                        Vice-trésorier
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Yannick COUPEL</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>
+                                <div class="card">
+                                    <div class="card-header membresReferents">
+                                        Photo - Vidéo
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Jean-Luc DIQUELOU</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card">
+                                    <div class="card-header membresReferents">
+                                        Mécanique
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Yvon BROUDIC</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card">
+                                    <div class="card-header membresReferents">
+                                        Sécurité
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Didier BESSERVE</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card">
+                                    <div class="card-header membresReferents">
+                                        Communication
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Céline VIGNAUD</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--<li>
+                      <div class="card">
+                        <div class="card-header">
+                          Stagiaires
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text">Site Web</p>
+                        </div>
+                      </div>
+                      <ul>
+                        <li>Florian BARON</li>
+                        <li>Nathalie NOEL LE ROSCOUET</li>
+                        <li>Maxime THUAULT</li>
+                        <li>Florence CORMANT</li>
+                        <li>Christophe LECLERE</li>
+                      </ul>
+                    </li>-->
+                    <li>
+                        <div class="card">
+                            <div class="card-header membresBureau">
+                                Secrétaire
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Valérie VIGNAUD</p>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="card">
+                                    <div class="card-header membresBureau">
+                                        Vice-secrétaire
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Dominique TRICHOT</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="content">
+
+        <div id="main"></div>
+    </div>
+
+
+
 
     <div class="center-hr">
         <hr class="hr25-pourcent center">
@@ -119,4 +267,18 @@
         </div>
     </div>
 
+    {% block scripts %}
+        <link rel="stylesheet" href="{{ asset('css/association/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/association/orgchart.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/association/jquery.orgchart.css') }}" />
+        {% block JQuery %}{% endblock %}
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <script src="{{ asset('js/jquery.orgchart.js') }}"></script>
+        <script>
+            $(function () {
+                $("#organisation").orgChart({ container: $("#main") });
+            });
+        </script>
+    {% endblock %}
 {% endblock %}

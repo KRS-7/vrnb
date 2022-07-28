@@ -10,3 +10,8 @@
 /php.xml/
 /vcs.xml/
 ###< symfony/framework-bundle ###
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###

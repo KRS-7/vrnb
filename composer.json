@@ -91,5 +91,8 @@
             "allow-contrib": false,
             "require": "4.4.*"
         }
+    },
+    "require-dev": {
+        "edgedesign/phpqa": "^1.26"
     }
 }
