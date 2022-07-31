@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion de l'organigramme | {{ parent() }}{% endblock %}
+
+{% block body %}
+
+    <div class="bordure">
+        {% for user in users %}
+            {# Si il s'agit du Referent Président il s'affiche ici #}
+            {% if user.referents.getNom() == 'Président' %}
+                <div class="card col-2 m-1">
+                    <div class="carte-entete membresBureau">
+                        <p class="role_user">{{ user.referents.getNom() }}</p>
+                    </div>
+                    <div class="card-body" id="card-body">
+                        <p class="card-tex">{{ user.prenom }} &nbsp</p>
+                        <p class="card-tex">{{ user.nom }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% for user in users %}
+            {# Si il s'agit du Referent Vice Président il s'affiche ici #}
+            {% if user.referents.getNom() == 'Vice Président' %}
+                <div class="card col-2 m-1">
+                    <div class="carte-entete membresBureau">
+                        <p class="role_user">{{ user.referents.getNom() }}</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-tex">{{  user.prenom }} &nbsp</p>
+                        <p class="card-tex">{{  user.nom }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+
+        {% for user in users %}
+            {# Si il s'agit du Referent Trésorier il s'affiche ici #}
+            {% if user.referents.getNom() == 'Trésorier' %}
+                <div class="card col-2 m-1">
+                    <div class="carte-entete membresBureau">
+                        <p class="role_user">{{ user.referents.getNom() }}</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-tex">{{  user.prenom }} &nbsp</p>
+                        <p class="card-tex">{{  user.nom }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% for user in users %}
+            {# Si il s'agit du Referent Trésorier il s'affiche ici #}
+            {% if user.referents.getNom() == 'Secrétaire' %}
+                <div class="card col-2 m-1">
+                    <div class="carte-entete membresBureau">
+
+                        <p class="role_user">{{ user.referents.getNom() }}</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-tex">{{  user.prenom }} &nbsp</p>
+                        <p class="card-tex">{{  user.nom }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+
+        {# Partie Autres Référents #}
+        {% for user in users %}
+            {# Si il s'agit d'un Référent qui est différent de Président, Secrétaire, Trésorier et Adhérent, il s'affiche ici #}
+            {% if user.referents.getNom() != 'Président' and user.referents.getNom() != 'Secrétaire'and user.referents.getNom() != 'Trésorier' and user.referents.getNom() != 'Adhérent'and user.referents.getNom() != 'Site web' %}
+                <div class="card col-2 m-1">
+                    <div class="carte-entete membresBureau">
+                        <p class="role_user center">{{ user.referents.getNom() }}</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-prenom">{{  user.prenom }} &nbsp</p>
+                        <p class="card-nom">{{  user.nom }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+
+        <form method="get" name="form" action="destination.php" id="form">
+            <input type="hidden" id="formChangementNom" name="data">
+            <input type="submit" value="Submit">
+        </form>
+
+
+        <!--
+
+        {% for user in users %}
+            {# Si il s'agit du Referent Site Web il s'affiche ici #}
+            {% if user.referents.getNom() == 'Site web' %}
+                <div class="card col-2 m-1">
+                    <div class="card-body">
+                        <p class="card-tex">{{  user.prenom }}</p>
+                        <p class="card-tex">{{  user.nom }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+-->
+
+{% endblock %}
+    </div>
