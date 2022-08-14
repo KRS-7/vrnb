@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modif des utilisateurs  | {{ parent() }}{% endblock %}
+{# La page de liste des user #}
+
+{% block body %}
+
+<div class="bordure">
+    {{ form (form)}}
+
+    {{ user.referents }}
+    {{ user.nom}}{{ user.prenom}}
+</div>
+
+    {% block carousel%}{% endblock %}
+
+{% endblock %}

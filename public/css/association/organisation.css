@@ -39,6 +39,7 @@
 
 }
 .role_user{
+    text-align: center;
     font-size: large;
     font-style: oblique;
     font-weight: lighter;
@@ -66,3 +67,63 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+/*** Gestion de l'organigramme **/
+.bordure{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around ;
+    margin: 100px auto auto;
+    width: 90%;
+}
+
+.carte-entete{
+    background-color: #fbfff0;
+    border: 1px solid black;
+    border-radius: 2px 2px 0 0;
+}
+
+.card-nom .card-prenom{
+    text-align: center;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card-body:hover{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card-bodyTest{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #00acc1;
+}
+
+.cacher{
+    display: none;
+}
+
+.modifierMembre{
+    display: flex;
+    background-color: #5c6bc0;
+}
+
+.boutonModifier {
+    background-color: white;
+
+}
+
+.nomPrenom{
+
+}
+
+
+
+

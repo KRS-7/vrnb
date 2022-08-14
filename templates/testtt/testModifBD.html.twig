@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des utilisateurs  | {{ parent() }}{% endblock %}
+{# La page de liste des user #}
+
+{% block body %}
+
+
+    {% for user in users %}
+        <div class="testModifBD bordure">
+            {{ user.nom }}
+            {{ user.prenom }}
+
+            {{ user.referents }}
+
+        </div>
+        <a href="{{ path('supprimer_user', {'id': user.id}) }}" class="button-supprimer-profil-admin btn btn-warning" onclick="return confirm('Voulez-vous vraiment supprimer cet adhérent ?')">Supprimer</a>
+
+        <a href="{{ path('use_edit', {'id': user.id}) }}" class="button-modifier-profil-admin btn btn-success">Modifier</a>
+
+    {% endfor %}
+
+
+{% endblock %}

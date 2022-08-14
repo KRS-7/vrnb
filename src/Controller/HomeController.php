@@ -1174,7 +1174,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/statistiques", name="statistiques")
      *
-     * Cette méthode permet d'afficher la page Google Analytics.
+     * Cette méthode permet d'afficher la page Matomo.
      *
      */
 
