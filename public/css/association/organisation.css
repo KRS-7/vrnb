@@ -12,6 +12,7 @@
     flex-wrap: wrap;
     width: 100%;
     margin-top: 100px;
+
 }
 .partie1{
     margin: 50px;
@@ -78,6 +79,7 @@
 }
 
 .carte-entete{
+    margin-top:2px;
     background-color: #fbfff0;
     border: 1px solid black;
     border-radius: 2px 2px 0 0;
@@ -91,12 +93,19 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #f4f4e6;
+    max-height: 70px;
+    border:1px solid black;
 }
 
 .card-body:hover{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
+    background-color: #f4f4e6;
 }
 
 .card-bodyTest{
@@ -117,12 +126,128 @@
 
 .boutonModifier {
     background-color: white;
-
 }
 
 .nomPrenom{
+    font-size: 1.25vw;
+}
+
+.equipeDeveloppement{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.EDBloc{
+    font-size: 0.75em;
+}
+
+#extraBordure{
+    margin-top: 30vh;
+}
+
+.row{
+    border : none;
+    margin:auto;
+}
+
+.boxLigneRef1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.boxLigneRef2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.carte{
+    margin: 2vw;
+}
+
+.margin-bottom{
+    margin-bottom: 0;
+}
+
+
+@media (max-width: 992px){
+    .role_user{
+        font-size: 1.65vw;
+    }
+
+    .nomPrenom{
+        font-size: 2vw;
+        margin-bottom:0;
+        }
+
+    .card-body{
+        min-height: 80px;
+    }
 
 }
+
+@media (max-width: 768px){
+    .role_user{
+        font-size: 1.5vw;
+    }
+
+    .nomPrenom{
+        font-size: 2vw;
+    }
+}
+
+
+    @media ( max-width: 576px){
+
+        .role_user{
+            font-size: 2vw;
+        }
+
+        .nomPrenom{
+            font-size: 2vw;
+        }
+
+        .card-body{
+            width: 60px;
+        }
+        .carte-entete{
+            width: 60px;
+        }
+
+        .EDBloc{
+            font-size: 0.5em;
+            margin:0;
+        }
+}
+
+@media ( max-width: 535px){
+
+    .role_user{
+        font-size: 2vw;
+    }
+
+    .nomPrenom{
+        font-size: 2vw;
+    }
+
+    .card-body{
+        max-width: 70px;
+    }
+    .carte-entete{
+        max-width: 70px;
+    }
+
+    .EDBloc{
+        font-size: 0.5em;
+        margin:0;
+    }
+}
+
+
 
 
 
