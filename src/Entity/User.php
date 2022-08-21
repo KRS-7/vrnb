@@ -24,7 +24,7 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @Assert\NotBlank(message="Veuillez inscrire votre pseudo")
+
      * @Assert\Length(max=50, maxMessage="Maximum 50 caracteres")
      * @ORM\Column(type="string", length=50, unique=true)
      */
@@ -50,7 +50,7 @@ class User implements UserInterface
     private $nom;
 
     /**
-     * @Assert\NotBlank(message="Veuillez inscrire votre prenom")
+
      * @ORM\Column(type="string", length=60)
      */
     private $prenom;
@@ -61,7 +61,7 @@ class User implements UserInterface
     private $telephone;
 
     /**
-     * @Assert\NotBlank(message="Veuillez inscrire votre e-mail")
+
      * @Assert\Email()
      * @ORM\Column(type="string", length=255)
      */

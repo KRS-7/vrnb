@@ -10,7 +10,7 @@
             <figure class="textcenter">
                 <img src="{{ asset('photo-intro/'~ photoIntro) }}"
                      alt="Programme des activités">
-                <figca  ption class="fig">Programme des activités</figcaption>
+                <figcaption class="fig">Programme des activités</figcaption>
             </figure>
         {% else %}
             <h1 class="titreEnTete">Programme des festivités</h1>
@@ -190,15 +190,30 @@
                                         </div>
                                     </div>
                                     <div class="buton-container row col-12">
+                                        {% if (activite.users.count) == 0 %}
+                                            <p> Il n'y pas encore d'inscrit à cette activité </p>
+                                        {% elseif (activite.users.count) == 1 %}
                                         {# On indique le nombre d'inscrit à l'activité #}
                                         <div class="col-10">
-                                            <p class="lead">il y a {{ activite.users.count }} inscrits a cette activité</p>
+                                            <p class="lead">il y a {{ activite.users.count }}
+                                                inscrit à cette activité :</p>
                                             <ol class="  ">
                                                 {% for user in activite.users %}
-                                                    <li>{{ user.username }}</li>
+                                                    <li class="list-unstyled">{{ user.username }}</li>
                                                 {% endfor %}
                                             </ol>
                                         </div>
+                                        {% else %}
+                                                <div class="col-10">
+                                                    <p class="lead">il y a {{ activite.users.count }}
+                                                        inscrits à cette activité :</p>
+                                                    <ol class="  ">
+                                                        {% for user in activite.users %}
+                                                            <li class="list-unstyled">{{ user.username }}</li>
+                                                        {% endfor %}
+                                                    </ol>
+                                                </div>
+                                        {% endif %}
                                             {# Si le nombre de participants =0 ou null, alors on ne l'affiche pas #}
                                             {% if (activite.totalParticipant == 0 or activite.totalParticipant == '') %}
                                                 {# Sinon on affiche le nbre de participants #}

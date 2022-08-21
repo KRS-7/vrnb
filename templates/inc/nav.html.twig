@@ -12,7 +12,7 @@
     </a>
 
 {# on déclare les éléments qui seront dans la navbar #}
-    <div class="collapse navbar-collapse" id="navbarTexto">
+    <div class="collapse navbar-collapse navbar-taille" id="navbarTexto">
         <ul class="navbar-nav">
 
             {# Partie Accueil #}
@@ -84,9 +84,9 @@
             {# Si l'Utilisateur est Adhérent alors il peut voir Album Photo #}
             {% if is_granted(["ROLE_USER"]) %}
 
-                {# Partie Album Photo #}
-                <li>
-                    <a class="nav-link" href="{{ path('album') }}">Albums photos</a>
+                {# Partie Nos Balades #}
+                <li class="nav-item">
+                    <a class="nav-link text-nowrap" href="{{ path('album') }}">Nos balades</a>
                 </li>
             {% endif %}
             {# éléments a menu déroulant #}

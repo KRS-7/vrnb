@@ -5,6 +5,10 @@ DOCUMENTATION SHOW
     margin: 5px;
     width: max-content;
 }
+
+@media qu {
+    
+}
 .documentation__paragraphe1 p, .documentation__paragraphe2 p{
     margin: 50px;
 }

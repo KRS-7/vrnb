@@ -6,126 +6,132 @@
 
     {# La page d'accueil #}
 
-    <div class="container-fluid">
+    <div class="container-fluid bureau_main">
 
-            {# Le logo et le nom du site sous png #}
-            <div class="en-tete-accueil row col-lg-12 col-sm-12">
-                <div class="title col-lg-12">
-                    <img src="{{ asset('logos/velorandonaturebruz_accueil.png') }}" alt="Nom de l'association">
-                </div>
+        {# Le logo et le nom du site sous png #}
+        <div class="en-tete-accueil row col-lg-12 col-sm-12">
+            <div class="title col-lg-12">
+                <img src="{{ asset('logos/velorandonaturebruz_accueil.png') }}" alt="Nom de l'association">
             </div>
+        </div>
 
-            {# encadré pour les évènements #}
+        {# encadré pour les évènements #}
 
-            <div class="encard-evenement col-lg-12 col-sm-12 col-xs-6">
-                <div class="div-home-actu-popup col-lg-5 col-sm-5">
-                    {# On boucle sur actualite afin d'afficher toutes les actualites existante #}
-                    {% for actualite in actualites %}
-                        {# Ici afficheactu est un boolean #}
-                        {# Si Actualité = 1 alors on l'affiche #}
-                        {% if actualite.afficheactu == 1 %}
-                            <div class="actu-home col-lg-8 col-sm-8 col-xs-8 border border-dark">
-                                <p>{{ actualite.actu }}</p>
-                                <div>
-                                    {# Si il y a un lien pour l'actualité #}
-                                    {% if(actualite.getUrl != null) %}
-                                        <a href="{{ actualite.url }}" target="_blank">site</a>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        {% else %}
-                        {% endif %}
-                    {% endfor %}
-                    {# On inclut les news sur les activités #}
-                    <div class="popup_accueil">
-                        {% include ('home/_news_activite.html.twig') %}
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="grid-meteo">
-                        <iframe class="meteo_accueil" id="widget_meteo" scrolling="no" width="100" height="100"
-                                frameborder="0"
-                                src="https://meteofrance.com/widget/prevision/350470##B5EA86"></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="carousel-container col-lg-12">
-                <div class="col-lg-12">
-                    {# Paragraphe avant Carrousel #}
-                    {% for texte in textes %}
-                        <p class="lead text-accueil">{{ texte.firstText | nl2br }} </p>
-                        {% if is_granted("ROLE_ADMIN") %}
-                            <div class="boutonModifierTexte">
-                                <button class="button_show btn btn-outline-success">Modifier le texte</button>
-                            </div>
-                            <div class="form-group formulaire" id="form">
-                                {{ form(formFirst) }}
-                                <div class="mt-3 mb-5 text-center">
-                                    <p>{{ form_widget(formFirst.Enregistrer) }}</p>
-                                    <button class="button_close btn btn-outline-secondary">Annuler</button>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                <div class="description-accueil row">
-                    <div class="slider">
-                        <div class="slide-track" style="--nbImages:{{ photos|length }}">
-                            {% for photo in photos %}
-                                {% if photo.getImage() is empty %}
-                                {% else %}
-                                    <div class="slide">
-
-                                        <img src="{{ app_asset(asset('album-photo/'~ photo.image), {'w': 400, 'h': 200}) }}"
-                                             width="400"
-                                             height="200"
-                                             alt="photo de randonnée"
-                                             loading="lazy">
-
-                                        {#
-                                        {% import 'macros.html.twig' as macros %}
-
-                                        {{ macros.image(
-                                            asset('album-photo/'~ photo.image),
-                                            350,
-                                            300,
-
-                                            {'class': 'img-fluid'},
-                                        )}}#}
-                                    </div>
-
-
-
-
-
-
+        <div class="encard-evenement col-lg-12 col-sm-12 col-xs-6">
+            <div class="div-home-actu-popup col-lg-5 col-sm-5">
+                {# On boucle sur actualite afin d'afficher toutes les actualites existante #}
+                {% for actualite in actualites %}
+                    {# Ici afficheactu est un boolean #}
+                    {# Si Actualité = 1 alors on l'affiche #}
+                    {% if actualite.afficheactu == 1 %}
+                        <div class="actu-home col-lg-8 col-sm-8 col-xs-8 border border-dark">
+                            <p>{{ actualite.actu }}</p>
+                            <div>
+                                {# Si il y a un lien pour l'actualité #}
+                                {% if(actualite.getUrl != null) %}
+                                    <a href="{{ actualite.url }}" target="_blank">site</a>
                                 {% endif %}
-                            {% endfor %}
+                            </div>
                         </div>
-                    </div>
+                    {% else %}
+                    {% endif %}
+                {% endfor %}
+                {# On inclut les news sur les activités #}
+                <div class="popup_accueil">
+                    {% include ('home/_news_activite.html.twig') %}
                 </div>
-
-                {# Paragraphe après Carrousel #}
-                <div class="col-lg-12">
-                    {% for texte in textes %}
-                        <p class="lead text-accueil">{{ texte.secondText | nl2br }} </p>
-                        {% if is_granted("ROLE_ADMIN") %}
-                            <div class="boutonModifierTexte">
-                                <button class="button_show btn btn-outline-success">Modifier le texte</button>
-                            </div>
-                            <div class="form-group formulaire" id="form">
-                                {{ form(formSecond) }}
-                                <div class="mt-3 mb-5 text-center">
-                                    <p>{{ form_widget(formSecond.Enregistrer) }}</p>
-                                    <button class="button_close btn btn-outline-secondary">Annuler</button>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+            </div>
+            <div class="col-lg-3">
+                <div class="grid-meteo">
+                    <iframe class="meteo_accueil" id="widget_meteo" scrolling="no" width="100" height="100"
+                            frameborder="0"
+                            src="https://meteofrance.com/widget/prevision/350470##B5EA86"></iframe>
                 </div>
             </div>
         </div>
+
+        <div class="carousel-container col-lg-12">
+            <div class="col-lg-12">
+                {# Paragraphe avant Carrousel #}
+                {% for texte in textes %}
+                    <p class="lead text-accueil">{{ texte.firstText | nl2br }} </p>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <div class="boutonModifierTexte">
+                            <button class="button_show btn btn-outline-success">Modifier le texte</button>
+                        </div>
+                        <div class="form-group formulaire" id="form">
+                            {{ form(formFirst) }}
+                            <div class="mt-3 mb-5 text-center">
+                                <p>{{ form_widget(formFirst.Enregistrer) }}</p>
+                                <button class="button_close btn btn-outline-secondary">Annuler</button>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="description-accueil row">
+                <div class="slider">
+                    <div class="slide-track" style="--nbImages:{{ photos|length }}">
+                        {% for photo in photos %}
+                            {% if photo.getImage() is empty %}
+                            {% else %}
+                                <div class="slide">
+
+                                    <img src="{{ app_asset(asset('album-photo/'~ photo.image), {'w': 400, 'h': 200}) }}"
+                                         width="400"
+                                         height="200"
+                                         alt="photo de randonnée"
+                                         loading="lazy">
+
+                                    {#
+                                    {% import 'macros.html.twig' as macros %}
+
+                                    {{ macros.image(
+                                        asset('album-photo/'~ photo.image),
+                                        350,
+                                        300,
+
+                                        {'class': 'img-fluid'},
+                                    )}}#}
+                                </div>
+
+
+
+
+
+
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <img src="album-photo/0b2b970cc4b4bc752f78f06261d2c868.jpeg'), {'w': 400, 'h': 200})"
+                 width="400"
+                 height="200"
+                 alt="photo de randonnée"
+                 loading="lazy">
+
+            {# Paragraphe après Carrousel #}
+            <div class="col-lg-12">
+                {% for texte in textes %}
+                    <p class="lead text-accueil">{{ texte.secondText | nl2br }} </p>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <div class="boutonModifierTexte">
+                            <button class="button_show btn btn-outline-success">Modifier le texte</button>
+                        </div>
+                        <div class="form-group formulaire" id="form">
+                            {{ form(formSecond) }}
+                            <div class="mt-3 mb-5 text-center">
+                                <p>{{ form_widget(formSecond.Enregistrer) }}</p>
+                                <button class="button_close btn btn-outline-secondary">Annuler</button>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
     </div>
 
     <div class="center-hr">

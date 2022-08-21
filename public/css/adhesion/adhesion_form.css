@@ -47,6 +47,7 @@
     border-radius: 15px;
     border:solid 1px;
     justify-content: center;
+    padding-top: 1%;
 }
 .adhesion_form{
     display: flex;
@@ -62,10 +63,25 @@
 .je_reconnais{
 padding: 0 10px 0 10px;
 }
-.size{
-    width:700px ;
-    height: 1100px;
-}
+
+
+
 .champ_je_reconnais{
     padding: 0 20px 0 20px;
+}
+
+#texteAdhésion{
+    display:flex;
+    justify-content: center;
+    width:95%;
+    margin: auto;
+}
+
+.titreAdhesion {
+    text-align: center;
+    font-family: "Times New Roman", fantasy;
+}
+
+.texte-adhesion{
+    border: 2px solid red;
 }

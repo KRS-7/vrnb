@@ -241,7 +241,7 @@ class UserController extends AbstractController
      *
      */
     public
-    function edit(Request $request, User $user, UserPasswordEncoderInterface $encoder): Response
+    function    edit(Request $request, User $user, UserPasswordEncoderInterface $encoder): Response
     {
 
         //Il faut être minimum Administrateur pour avoir accès a cette methode

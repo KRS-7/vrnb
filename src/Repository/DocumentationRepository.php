@@ -38,7 +38,7 @@ class DocumentationRepository extends ServiceEntityRepository
             ->innerJoin('doc.categorie', 'c')
             ->addSelect('doc.id')
             ->addSelect('doc.date_creation')
-            ->orderBy('doc.date_modifier', 'ASC');
+            ->orderBy('doc.date_modifier', 'DESC');
 
         if (!empty($search->q)) {
             $query = $query

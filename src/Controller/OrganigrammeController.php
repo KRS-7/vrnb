@@ -40,7 +40,6 @@ class OrganigrammeController extends AbstractController
      * @Route("/{id}/edit", name="referent_edit", methods={"GET","POST"})
      * @param Request $request
      * @param User $user
-     * @param UserPasswordEncoderInterface $encoder
      * @return Response
      *
      *
@@ -57,11 +56,9 @@ class OrganigrammeController extends AbstractController
         // Identification du membre concerné
         $user = $userRepository->find($id);
 
-
         // Récupération de son Id de référent
         $ref = $user->getReferents();
         $ref->getOrdre();
-
 
         //Création du formulaire de sélection des référents
         $form = $this->createForm(TestModifBDControllerType::class);
@@ -75,9 +72,6 @@ class OrganigrammeController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             // Récupère le champ "Nom" du formulaire
             $referent = $form->getData();
-
-
-
             $user->setReferents($referent);
             $em->persist($user);
             $em->flush();

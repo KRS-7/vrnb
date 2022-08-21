@@ -16,7 +16,8 @@ class TestModifBDControllerType extends AbstractType
     {
         $builder
             ->add('nom', EntityType::class, [
-                'class' => Referent::class,])
+                'class' => Referent::class,
+                'attr' => ['label' => 'btn-success']])
 
             ->add('ordre')
 

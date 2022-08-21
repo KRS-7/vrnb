@@ -32,7 +32,7 @@ class DocumentationController extends AbstractController
      * @return Response
      *
      * Cette méthode permet de diriger les utilisateur vers la page documentation.
-     * Elle affichage les documentations trié par date (dateModification) sur la page documentation.
+     * Elle affiche les documentations trié par date (dateModification) sur la page documentation.
      */
     public function documentation(EntityManagerInterface $entityManager, IntroPhotoRepository $introPhotoRepository, DocumentationRepository $documentationRepository, Request $request): Response
     {
@@ -58,6 +58,7 @@ class DocumentationController extends AbstractController
 
         //on liste toutes les activités comme le findall mais en une requête
         $products = $documentationRepository->findSearchDocumentation($data);
+
 
         if ($formDoc->isSubmitted() && $formDoc->isValid()) {
 

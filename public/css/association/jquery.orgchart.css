@@ -3,6 +3,10 @@ div.orgChart {
     margin: 10px;
     padding: 20px;
 }
+@media (max-width: 540px){
+
+}
+
 
 div.orgChart h2 {
     margin: 0px;
@@ -50,10 +54,10 @@ div.orgChart td {
     padding: 0px 2px;
 }
 
-div.orgChart div.node {
+div.orgChart div.node  {
 
     display: inline-block;
-    width: 150px;
+
     min-width: 100px;
     line-height: 1.3em;
     border-radius: 8px;
@@ -63,6 +67,7 @@ div.orgChart div.node {
     -webkit-border-radius: 8px;
     -webkit-box-shadow: 4px 4px 6px #888888;
 }
+
 
 div.orgChart div.hasChildren {
 
@@ -92,3 +97,4 @@ div.orgChart div.adjunct-link {
     width: 20px;
     border: 1px dashed black;
 }
+

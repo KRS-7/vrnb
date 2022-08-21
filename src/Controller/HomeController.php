@@ -64,6 +64,7 @@ use Symfony\Component\Form\Form;
 
 class HomeController extends AbstractController
 {
+
     /**
      * @Route ("/", name="hometotal")
      *
@@ -1174,15 +1175,15 @@ class HomeController extends AbstractController
     /**
      * @Route("/statistiques", name="statistiques")
      *
-     * Cette méthode permet d'afficher la page Matomo.
-     *
+     * Affiche la page des statistiques générées par le plugin Matomo .
      */
 
     public function Statistiques(): Response
     {
+        // Accès a la page refusé si le user loggé n'est pas admin
         $this->denyAccessUnlessGranted("ROLE_ADMIN");
 
-        //Permet de rediriger vers la page mentions-legales.html.twig( Mention légales )
+        // Renvoie la vue
         return $this->render('Association/Statistiques.html.twig');
     }
 

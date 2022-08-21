@@ -330,5 +330,6 @@ window.onload = function () {
 /*
 if (document.readyState !== 'loading') {
     onReady()
-}
-document.addEventListener('DOMContentLoaded', onReady)
+    document.addEventListener('DOMContentLoaded', onReady);
+};
+*/

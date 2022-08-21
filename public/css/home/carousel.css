@@ -24,8 +24,7 @@
     }
 }
 .slide{
-    height: 300px;
-    width: 350px;
+
     display: flex;
     align-items: center;
     padding: 20px;

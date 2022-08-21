@@ -10,22 +10,23 @@
         "doctrine/annotations": "^1.13",
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
-        "doctrine/orm": "^2.8",
+        "doctrine/orm": "=2.11.3",
         "friendsofsymfony/ckeditor-bundle": "^2.3",
         "google/apiclient": "2.0",
         "laminas/laminas-eventmanager": "^3.3",
         "league/glide": "^2.2",
         "league/glide-symfony": "^2.0",
-        "sensio/framework-extra-bundle": "^5.6",
+        "liip/imagine-bundle": "^2.8",
+        "sensio/framework-extra-bundle": "^6.2",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.4.*",
+        "symfony/config": "4.4.*",
         "symfony/console": "4.4.*",
         "symfony/debug-bundle": "4.4.*",
         "symfony/dotenv": "4.4.*",
         "symfony/flex": "^1.3.1",
         "symfony/form": "4.4.*",
         "symfony/framework-bundle": "4.4.*",
-        "symfony/maker-bundle": "^1.27",
         "symfony/monolog-bundle": "^3.0",
         "symfony/proxy-manager-bridge": "4.4.*",
         "symfony/requirements-checker": "^2.0",
@@ -79,13 +80,12 @@
         "post-install-cmd": [
             "@auto-scripts"
         ],
+
         "post-update-cmd": [
             "@auto-scripts"
         ]
     },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
+    
     "extra": {
         "symfony": {
             "allow-contrib": false,
@@ -93,6 +93,7 @@
         }
     },
     "require-dev": {
-        "edgedesign/phpqa": "^1.26"
+        "edgedesign/phpqa": "^1.26",
+        "symfony/maker-bundle": "=1.39.0"
     }
 }

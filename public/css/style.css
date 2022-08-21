@@ -186,5 +186,14 @@ hr{
     border: 2px solid red;
 }
 
+.testModifBD{
+    font-size: x-large;
+    text-align: center;
+}
+
+#matomoWindow{
+    height: 1000px;
+}
+
 
 

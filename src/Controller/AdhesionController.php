@@ -2,8 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Form\AdhesionType;
 
+use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\Id;
 use Swift_Mailer;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,48 +29,14 @@ class AdhesionController extends AbstractController
      * pour qu'un admin puisse créer un adhérent avec les données.
      *
      */
-    public function index(Request $request, Swift_Mailer $mailer): Response
+    public function index(Request $request, Swift_Mailer $mailer, UserRepository $userRepository): Response
     {
-        //On créer notre formulaire.
-        $form = $this->createForm(AdhesionType::class);
-        //On récupère les information saisi.
-        $form->handleRequest($request);
-        $droit = $form->get("droit")->getData();
+        // Stocke l'utilisateur "Président" dans la variable pour affichage de propriétés dans la vue
+        $president = $userRepository->findOneBy(['referents' => '1']);
 
-        //Si le formulaire a bien été envoyer et qu'il est valide ...
-        if ($form->isSubmitted() && $form->isValid()) {
-
-
-            //On récupère les données saisie dans le formulaire et on les stock dans la variable $adhesion.
-            $adhesion = $form->getData();
-            // envoi du mail.
-            $message = (new Swift_Message('Nouvel Adherent'))
-
-                // on attribue l'expediteur.
-                ->setFrom($adhesion['email'])
-
-                ->attach(\Swift_Attachment::fromPath($droit))
-
-                // on attribue le destinataire.
-                ->setTo('vrnb2020@velorandonaturebruz.fr')
-
-                // on créée le message avec le twig.
-                ->setBody(
-                    $this->renderView(
-                        'emails/buletin_adhesion.html.twig', compact('adhesion')
-                    ),
-                    'text/html'
-                );
-            // on envoie le message
-            $mailer->send($message);
-            //On renvoie un message de success a l'utilisateur pour prévenir de la réussite.
-            $this->addFlash('success', 'Le bulletin a bien été envoyé');
-            //On redirige l'utilisateur sur la page index.html.twig (acceuil).
-            return $this->redirectToRoute('home1');
-        }
-        //On envoie les données sur la page adhesion/index.html.twig (adhésion).
+        //On envie les données sur la page adhesion/index.html.twig (adhésion).
         return $this->render('adhesion/index.html.twig', [
-            'adhesionForm' => $form->createView(),
+            'president' => $president
         ]);
 
     }

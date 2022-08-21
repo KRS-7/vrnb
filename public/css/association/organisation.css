@@ -130,6 +130,7 @@
 
 .nomPrenom{
     font-size: 1.25vw;
+    margin-bottom: 0;
 }
 
 .equipeDeveloppement{
@@ -235,10 +236,10 @@
     }
 
     .card-body{
-        max-width: 70px;
+        width: 80px;
     }
     .carte-entete{
-        max-width: 70px;
+        width: 80px;
     }
 
     .EDBloc{

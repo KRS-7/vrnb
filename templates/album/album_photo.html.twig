@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Albums Photos |{{ parent() }}{% endblock %}
+{% block title %} Nos balades |{{ parent() }}{% endblock %}
 
 {# La page albums photos #}
 
@@ -11,10 +11,10 @@
             <figure class="textcenter">
                 <img src="{{ asset('photo-intro/'~ photoIntro) }}"
                      alt="Albums photos de l'association Vélo Rando Nature Bruz">
-                <figcaption class="fig">Albums photos</figcaption>
+                <figcaption class="fig">Nos balades</figcaption>
             </figure>
         {% else %}
-            <h1 class="titreEnTete">Albums Photos</h1>
+            <h1 class="titreEnTete">Nos balades</h1>
         {% endif %}
     </div>
     <div class="col-lg-12">
@@ -30,6 +30,9 @@
                 </div>
             </div>
         {% endif %}
+    </div>
+    <div>
+        <p class="lead text-accueil"> Retrouvez ici le détail de nos dernières balades </p>
     </div>
 
 

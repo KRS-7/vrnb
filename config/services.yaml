@@ -45,7 +45,7 @@ services:
     League\Glide\Server:
         factory: [ 'League\Glide\ServerFactory', create ]
         arguments:
-            - source: 'Vrnb\public\album-photo'
+            - source: '%Vrnb/public/album-photo%'
               cache: '%app.image_cache_dir%'
 
 

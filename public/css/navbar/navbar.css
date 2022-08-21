@@ -23,6 +23,7 @@
 }
 .navbar-custom {
     height: 100px;
+
 }
 .logoVRNB {
     display: flex;
@@ -39,5 +40,12 @@ header{
     width: 100%;
     z-index: 12;
     solid-opacity: 0.33;
+}
+
+
+}
+
+.nav.link{
+    width:350px;
 }
 
